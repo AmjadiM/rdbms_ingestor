@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}BDS{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Request new data sources </h1>
+</div>
+
+<!--
+Use the quick form to proof it out
+{{ wtf.quick_form(form) }}
+-->
+
+<form class="form form-horizontal" method="post" role="form">
+  {{ form.hidden_tag() }}
+  {{ wtf.form_errors(form, hiddens="only") }}
+
+  {{ wtf.form_field(form.environment) }}
+  {{ wtf.form_field(form.server) }}
+    {{ wtf.form_field(form.database) }}
+  {{ wtf.form_field(form.schema) }}
+    {{ wtf.form_field(form.reason) }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
