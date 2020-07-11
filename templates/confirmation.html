@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<head>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pretty.css') }}">
+</head>
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}BDS{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if confdict %}{{ confdict }}{% else %}Buddy{% endif %}!</h1>
+</div>
+
+{% endblock %}
+
