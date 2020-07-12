@@ -16,11 +16,11 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = "mikeamjadi20@gmail.com"
 app.config['MAIL_PASSWORD'] = None
-app._static_folder = "C:\\Users\mikea\Desktop\Developer\Projects\Work\RDBMS_WebApp\\rdbms_ingestor\static"
+app._static_folder = 'C:\\Users\mikea\Desktop\Developer\Projects\Work\RDBMS_WebApp\\rdbms_ingestor\\app\static'
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 mail = Mail(app)
-
+# hex key for primary color = #021746
 
 
 ########################
@@ -81,7 +81,7 @@ def index():
 
 @app.route('/confirmation', methods=['GET'])
 def confirmation():
-    return render_template("confirmation.html")
+    return render_template('confirmation.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -104,8 +104,9 @@ def register():
         return redirect(url_for("confirmation"))
     return render_template('register_source.html', form=form, name=database)
 
-
-
+app.route('/help')
+def help():
+    return render_template('404.html')
 ## Will present the 404.html if user runs into 404 error
 @app.errorhandler(404)
 def page_not_found(e):
